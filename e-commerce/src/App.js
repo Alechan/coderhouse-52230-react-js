@@ -20,7 +20,6 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-          commit prueba
         </a>
       </header>
     </div>
