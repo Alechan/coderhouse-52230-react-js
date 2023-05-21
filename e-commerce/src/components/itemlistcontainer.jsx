@@ -1,11 +1,11 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting}) => {
     return (
         <Container>
             <Row>
                 <Col>
-                    <h1>¡Bienvenides a la tienda!</h1>
+                    <h1>{greeting}</h1>
                 </Col>
             </Row>
         </Container>
