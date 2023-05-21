@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {Cart4} from 'react-bootstrap-icons';
 
 function ShopBrand() {
     return (
@@ -16,7 +17,6 @@ function BurgerIcon() {
 }
 
 function MenuItems() {
-    const Home = () => <Nav.Link href="#home">Home</Nav.Link>;
     const TuTienda = () => <Nav.Link href="#tu-tienda">Tu tienda</Nav.Link>;
     const Categorias = () => {
         return (
@@ -29,12 +29,13 @@ function MenuItems() {
             </NavDropdown>
         )
     };
+    const Ayuda = () => <Nav.Link href="#ayuda">Ayuda</Nav.Link>;
 
     return <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-            <Home/>
             <Categorias/>
             <TuTienda/>
+            <Ayuda/>
         </Nav>
     </Navbar.Collapse>;
 }
@@ -46,6 +47,12 @@ function NavBar() {
                 <ShopBrand/>
                 <BurgerIcon/>
                 <MenuItems/>
+                <Navbar.Collapse className="justify-content-end">
+                    <Nav.Link href="#carrito">
+                        <Cart4 />
+                        (1)
+                    </Nav.Link>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );
