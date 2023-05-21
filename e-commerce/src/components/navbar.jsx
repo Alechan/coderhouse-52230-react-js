@@ -7,7 +7,12 @@ import CartWidget from "./cartwidget";
 function ShopBrand() {
     return (
         <Navbar.Brand href="#home">
-            PororóShop
+            <Container className="d-flex align-items-center">
+                <span role="img" aria-label="popcorn" style={{ marginRight: '10px' }}>🍿</span>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    PororóShop
+                </Navbar.Collapse>
+            </Container>
         </Navbar.Brand>
     );
 }
