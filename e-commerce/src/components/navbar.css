@@ -1,0 +1,60 @@
+.navbar {
+    background-color: green;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-brand:hover{
+    color: lightgreen;
+}
+
+.navbar .nav .nav-link.dropdown-toggle::after {
+    border-top-color: white;
+}
+
+.navbar .nav .nav-link.dropdown-toggle,
+.navbar .dropdown-item {
+    color: white;
+}
+
+.navbar .nav .nav-link.dropdown-toggle:hover,
+.navbar .dropdown-item:hover {
+    background-color: initial !important;
+    color: lightgreen;
+}
+
+.nav .nav-link {
+    color: white;
+}
+
+.nav .nav-link.active {
+    background-color: green;
+}
+
+.nav .nav-link:hover {
+    color: lightgreen;
+}
+
+.dropdown-menu {
+    background-color: green;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+}
+
+.nav-link {
+    color:white;
+}
+
+.nav-link:hover {
+    color: lightgreen;
+}
+
+.span-pororo-emoji {
+    margin-right: 10px;
+}

@@ -3,12 +3,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from "./cartwidget";
+import './navbar.css';
 
 function ShopBrand() {
     return (
         <Navbar.Brand href="#home">
             <Container className="d-flex align-items-center">
-                <span role="img" aria-label="popcorn" style={{ marginRight: '10px' }}>🍿</span>
+                <span className="span-pororo-emoji" > 🍿 </span>
                 <Navbar.Collapse id="basic-navbar-nav">
                     PororóShop
                 </Navbar.Collapse>
@@ -47,7 +48,7 @@ function MenuItems() {
 
 function NavBar() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg" >
             <Container>
                 <ShopBrand/>
                 <BurgerIcon/>
