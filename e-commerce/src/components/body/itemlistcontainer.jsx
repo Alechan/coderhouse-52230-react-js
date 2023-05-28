@@ -1,6 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './itemlistcontainer.css';
-import ItemCount from "./ItemCount";
+import ItemDetail from "./ItemDetail";
 
 const ItemListContainer = ({greeting}) => {
     return (
@@ -9,9 +9,9 @@ const ItemListContainer = ({greeting}) => {
                 <Row className="justify-content-center align-items-center">
                     <Col className="col-greeter">
                         <h1>{greeting}</h1>
-                        <ItemCount item="Table" />
-                        <ItemCount item="Chair" />
-                        <ItemCount item="T-Shirt" />
+                        <ItemDetail name="Table" initial={0}/>
+                        <ItemDetail name="Chair" initial={0}/>
+                        <ItemDetail name="T-Shirt" initial={0}/>
                     </Col>
                 </Row>
             </Container>
