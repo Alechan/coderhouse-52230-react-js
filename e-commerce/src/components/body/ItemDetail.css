@@ -1,0 +1,12 @@
+.item-detail {
+    background-color: #d3d3d3;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.item-detail h4 {
+    margin-right: 10px;
+}

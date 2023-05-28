@@ -9,9 +9,9 @@ const ItemListContainer = ({greeting}) => {
                 <Row className="justify-content-center align-items-center">
                     <Col className="col-greeter">
                         <h1>{greeting}</h1>
-                        <ItemDetail name="Table" initial={0}/>
-                        <ItemDetail name="Chair" initial={0}/>
-                        <ItemDetail name="T-Shirt" initial={0}/>
+                        <ItemDetail name="Mesa" initial={0}/>
+                        <ItemDetail name="Cajón de naranjas" initial={0}/>
+                        <ItemDetail name="Cajón de mandarinas" initial={0}/>
                     </Col>
                 </Row>
             </Container>
