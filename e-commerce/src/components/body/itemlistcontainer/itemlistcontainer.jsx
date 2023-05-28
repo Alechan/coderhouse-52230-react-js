@@ -3,6 +3,7 @@ import './itemlistcontainer.css';
 import ItemList from "../itemlist/ItemList";
 
 const ItemListContainer = ({greeting}) => {
+    // TODO: usar un mock con 2s de delay en vez de hardcodearlo acá
     const items = [
         {
             id: 1,
@@ -21,7 +22,7 @@ const ItemListContainer = ({greeting}) => {
         {
             id: 3,
             title: "Cajón de mandarinas",
-            price: 500,
+            price: 550,
             pictureUrl: "https://via.placeholder.com/150",
             stock: 8
         }
