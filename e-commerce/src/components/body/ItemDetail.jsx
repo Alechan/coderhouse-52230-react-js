@@ -3,10 +3,14 @@ import ItemCount from "./ItemCount";
 import './ItemDetail.css';
 
 function ItemDetail({name, stock, initial}) {
+    // Todavía no definimos qué va a hacer onAdd
+    const onAdd = (count) => {
+        console.log("Agregaste " + count + " '" + name + "' al carrito");
+    }
     return (
         <div className="item-detail">
             <h4>{name}</h4>
-            <ItemCount stock={stock} initial={initial}/>
+            <ItemCount stock={stock} initial={initial} onAdd={onAdd}/>
         </div>
     );
 }
