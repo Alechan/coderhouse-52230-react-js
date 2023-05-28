@@ -1,8 +1,8 @@
 import React from "react";
 import ItemCount from "./ItemCount";
-import './ItemDetail.css';
+import './Item.css';
 
-function ItemDetail({name, stock, initial}) {
+function Item({name, stock, initial}) {
     // Todavía no definimos qué va a hacer onAdd
     const onAdd = (count) => {
         console.log("Agregaste " + count + " '" + name + "' al carrito");
@@ -15,4 +15,4 @@ function ItemDetail({name, stock, initial}) {
     );
 }
 
-export default ItemDetail;
+export default Item;
