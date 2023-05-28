@@ -1,12 +1,13 @@
 .item-detail {
     background-color: #d3d3d3;
-    padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    width: 300px;
+    height: 300px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
 .item-detail h4 {
-    margin-right: 10px;
+    margin-top: 10px;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import ItemCount from "../itemcount/ItemCount";
 import './Item.css';
+import {Col, Row, Container} from "react-bootstrap";
 
 function Item({item}) {
     // Items an object with the following structure:
@@ -12,15 +13,36 @@ function Item({item}) {
     //     stock: 5
     // }
 
-    // Todavía no definimos qué va a hacer onAdd
+    // TODO: Todavía no definimos qué va a hacer onAdd
     const onAdd = (count) => {
         console.log("Agregaste " + count + " '" + item.title + "' al carrito");
     }
     return (
-        <div className="item-detail">
-            <h4>{item.title}</h4>
-            <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>
-        </div>
+        <Container fluid className="item-detail justify-content-center align-items-center">
+            <Row>
+                <Col>
+                    <h4>{item.title}</h4>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <img src={item.pictureUrl} alt={item.title}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>${item.price}</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Stock: {item.stock}</p>
+                </Col>
+                <Col>
+                    <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
