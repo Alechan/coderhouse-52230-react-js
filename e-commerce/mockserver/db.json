@@ -1,0 +1,8 @@
+{
+    "productos": [
+          { "id": 1, "title": "Mesa" },
+              { "id": 2, "title": "Mandarinas" },
+              { "id": 3, "title": "Naranjas" }
+                ]
+}
+
