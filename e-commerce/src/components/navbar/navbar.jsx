@@ -2,19 +2,23 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from 'react-router-bootstrap'
 import CartWidget from "./cartwidget";
 import './navbar.css';
 
 function ShopBrand() {
     return (
-        <Navbar.Brand href="/">
-            <Container className="d-flex align-items-center">
-                <span className="span-pororo-emoji" > 🍿 </span>
-                <Navbar.Collapse id="basic-navbar-nav">
-                    PororóShop
-                </Navbar.Collapse>
-            </Container>
-        </Navbar.Brand>
+        <LinkContainer to="/">
+            <Navbar.Brand>
+                <Container className="d-flex align-items-center">
+                    <span className="span-pororo-emoji" > 🍿 </span>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        PororóShop
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar.Brand>
+        </LinkContainer>
+
     );
 }
 
@@ -23,25 +27,28 @@ function BurgerIcon() {
 }
 
 function MenuItems() {
-    const TuTienda = () => <Nav.Link href="#tu-tienda">Tu tienda</Nav.Link>;
+    const CategoryLink = ({category, path}) => {
+        return (
+            <LinkContainer to={path}>
+                <NavDropdown.Item >{category}</NavDropdown.Item>
+            </LinkContainer>
+        )
+    }
     const Cuidades = () => {
         return (
-            <NavDropdown title="Ciudades" id="basic-nav-ciudades">
-                <NavDropdown.Item href="#ciudad/parana">Paraná</NavDropdown.Item>
-                <NavDropdown.Item href="#ciudad/concordia">Concordia</NavDropdown.Item>
-                <NavDropdown.Item href="#ciudad/gualeguaychu">Gualeguaychú</NavDropdown.Item>
+            <NavDropdown title="Categorías" id="basic-nav-ciudades">
+                <CategoryLink category="Paraná" path="/category/parana"/>
+                <CategoryLink category="Concordia" path="/category/concordia"/>
+                <CategoryLink category="Gualeguaychú" path="/category/gualeguaychu"/>
                 <NavDropdown.Divider/>
-                <NavDropdown.Item href="#ciudad/todo-entre-rios">A todo Entre Ríos</NavDropdown.Item>
+                <CategoryLink category="A todo Entre Ríos" path="/category/a-todo-entre-rios"/>
             </NavDropdown>
         )
     };
-    const Ayuda = () => <Nav.Link href="#ayuda">Ayuda</Nav.Link>;
 
     return <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
             <Cuidades/>
-            <TuTienda/>
-            <Ayuda/>
         </Nav>
     </Navbar.Collapse>;
 }
