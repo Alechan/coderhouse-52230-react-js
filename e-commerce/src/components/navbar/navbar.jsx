@@ -7,7 +7,7 @@ import './navbar.css';
 
 function ShopBrand() {
     return (
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
             <Container className="d-flex align-items-center">
                 <span className="span-pororo-emoji" > 🍿 </span>
                 <Navbar.Collapse id="basic-navbar-nav">
