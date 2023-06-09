@@ -1,4 +1,4 @@
-import {Container, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 import './itemlistcontainer.css';
 import ItemList from "../itemlist/ItemList";
 
@@ -29,16 +29,12 @@ const ItemListContainer = ({greeting}) => {
     ]
 
     return (
-        <div className="background-image-container">
-            <Container fluid className="background-image-blur">
                 <Row className="justify-content-center align-items-center">
                     <Col className="col-greeter">
                         <h1>{greeting}</h1>
                         <ItemList items={items}/>
                     </Col>
                 </Row>
-            </Container>
-        </div>
     );
 };
 
