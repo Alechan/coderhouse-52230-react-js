@@ -3,7 +3,7 @@ import ItemCount from "../itemcount/ItemCount";
 import './Item.css';
 import {Col, Row, Container} from "react-bootstrap";
 
-function Item({item}) {
+function ItemDetail({item}) {
     // Items an object with the following structure:
     // {
     //     id: 1,
@@ -46,4 +46,4 @@ function Item({item}) {
     );
 }
 
-export default Item;
+export default ItemDetail;

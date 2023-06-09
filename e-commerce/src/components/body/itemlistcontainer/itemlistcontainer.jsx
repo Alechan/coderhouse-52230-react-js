@@ -14,14 +14,14 @@ const ItemListContainer = ({greeting}) => {
         },
         {
             id: 2,
-            title: "Cajón de naranjas",
+            title: "Naranjas",
             price: 500,
             pictureUrl: "https://via.placeholder.com/150",
             stock: 2
         },
         {
             id: 3,
-            title: "Cajón de mandarinas",
+            title: "Mandarinas",
             price: 550,
             pictureUrl: "https://via.placeholder.com/150",
             stock: 8

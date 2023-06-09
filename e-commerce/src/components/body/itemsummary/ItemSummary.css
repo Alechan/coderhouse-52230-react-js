@@ -1,0 +1,14 @@
+.item-detail {
+    background-color: #d3d3d3;
+    margin: 10px;
+    border-radius: 10px;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-detail h4 {
+    margin-top: 10px;
+    text-align: center;
+}
