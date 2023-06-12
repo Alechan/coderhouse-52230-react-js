@@ -27,21 +27,21 @@ function BurgerIcon() {
 }
 
 function MenuItems() {
-    const CategoryLink = ({category, path}) => {
+    const CityLink = ({city, path}) => {
         return (
             <LinkContainer to={path}>
-                <NavDropdown.Item >{category}</NavDropdown.Item>
+                <NavDropdown.Item >{city}</NavDropdown.Item>
             </LinkContainer>
         )
     }
     const Cuidades = () => {
         return (
-            <NavDropdown title="Categorías" id="basic-nav-ciudades">
-                <CategoryLink category="Paraná" path="/category/parana"/>
-                <CategoryLink category="Concordia" path="/category/concordia"/>
-                <CategoryLink category="Gualeguaychú" path="/category/gualeguaychu"/>
+            <NavDropdown title="Ciudades" id="basic-nav-ciudades">
+                <CityLink city="Paraná" path="/city/parana"/>
+                <CityLink city="Concordia" path="/city/concordia"/>
+                <CityLink city="Gualeguaychú" path="/city/gualeguaychu"/>
                 <NavDropdown.Divider/>
-                <CategoryLink category="A todo Entre Ríos" path="/category/a-todo-entre-rios"/>
+                <CityLink city="A todo Entre Ríos" path="/city/a-todo-entre-rios"/>
             </NavDropdown>
         )
     };

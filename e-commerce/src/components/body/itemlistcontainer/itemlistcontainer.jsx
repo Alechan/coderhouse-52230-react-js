@@ -10,6 +10,8 @@ const ItemListContainer = ({greeting}) => {
             title: "Mesa",
             price: 1000,
             pictureUrl: "https://via.placeholder.com/150",
+            cityId: "parana",
+            cityName: "Paraná",
             stock: 5
         },
         {
@@ -17,6 +19,8 @@ const ItemListContainer = ({greeting}) => {
             title: "Naranjas",
             price: 500,
             pictureUrl: "https://via.placeholder.com/150",
+            cityId: "parana",
+            cityName: "Paraná",
             stock: 2
         },
         {
@@ -24,7 +28,54 @@ const ItemListContainer = ({greeting}) => {
             title: "Mandarinas",
             price: 550,
             pictureUrl: "https://via.placeholder.com/150",
+            cityId: "concordia",
+            cityName: "Concordia",
             stock: 8
+        },
+        {
+            id: 4,
+            title: "Bananas",
+            price: 600,
+            pictureUrl: "https://via.placeholder.com/150",
+            cityId: "concordia",
+            cityName: "Concordia",
+            stock: 10
+        },
+        {
+            id: 5,
+            title: "Bananas",
+            price: 600,
+            pictureUrl: "https://via.placeholder.com/150",
+            cityId: "concordia",
+            cityName: "Concordia",
+            stock: 10
+        },
+        {
+            id: 6,
+            title: "Bananas",
+            price: 600,
+            pictureUrl: "https://via.placeholder.com/150",
+            cityId: "a-todo-entre-rios",
+            cityName: "A todo Entre Ríos",
+            stock: 10
+        },
+        {
+            id: 7,
+            title: "Bananas",
+            price: 600,
+            pictureUrl: "https://via.placeholder.com/150",
+            cityId: "gualeguaychu",
+            cityName: "Gualeguaychú",
+            stock: 10
+        },
+        {
+            id: 8,
+            title: "Bananas",
+            price: 600,
+            pictureUrl: "https://via.placeholder.com/150",
+            cityId: "concordia",
+            cityName: "Concordia",
+            stock: 10
         }
     ]
 
