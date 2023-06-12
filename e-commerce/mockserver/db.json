@@ -50,8 +50,8 @@
       "title": "Bananas",
       "price": 600,
       "pictureUrl": "https://via.placeholder.com/150",
-      "cityId": "a-todo-entre-rios",
-      "cityName": "A todo Entre Ríos",
+      "cityId": "concordia",
+      "cityName": "Concordia",
       "stock": 10
     },
     {
@@ -81,10 +81,6 @@
     {
       "id": "concordia",
       "name": "Concordia"
-    },
-    {
-      "id": "a-todo-entre-rios",
-      "name": "A todo Entre Ríos"
     },
     {
       "id": "gualeguaychu",
