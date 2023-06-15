@@ -22,6 +22,7 @@ const ItemListContainer = ({greeting}) => {
                 <Row className="justify-content-center align-items-center">
                     <Col className="col-greeter">
                         <h1>{greeting}</h1>
+                        <h2>Haz click en un producto para ver sus detalles</h2>
                         {loading ?
                             <Container>
                                 <h2 className="d-inline">Cargando productos... </h2>
