@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Mesa",
       "price": 1000,
-      "pictureUrl": "./assets/mesa.png",
+      "pictureUrl": "/assets/mesa.jpg",
       "cityId": "parana",
       "cityName": "Paraná",
       "stock": 5
@@ -13,7 +13,7 @@
       "id": 2,
       "title": "Naranjas",
       "price": 500,
-      "pictureUrl": "https://via.placeholder.com/150",
+      "pictureUrl": "/assets/naranjas.jpg",
       "cityId": "parana",
       "cityName": "Paraná",
       "stock": 2
@@ -22,7 +22,7 @@
       "id": 3,
       "title": "Mandarinas",
       "price": 550,
-      "pictureUrl": "https://via.placeholder.com/150",
+      "pictureUrl": "/assets/mandarinas.webp",
       "cityId": "concordia",
       "cityName": "Concordia",
       "stock": 8
@@ -31,43 +31,25 @@
       "id": 4,
       "title": "Bananas",
       "price": 600,
-      "pictureUrl": "https://via.placeholder.com/150",
+      "pictureUrl": "/assets/bananas.webp",
       "cityId": "concordia",
       "cityName": "Concordia",
       "stock": 10
     },
     {
       "id": 5,
-      "title": "Bananas",
+      "title": "Silla",
       "price": 600,
-      "pictureUrl": "https://via.placeholder.com/150",
+      "pictureUrl": "/assets/silla.jpg",
       "cityId": "concordia",
       "cityName": "Concordia",
       "stock": 10
     },
     {
       "id": 6,
-      "title": "Bananas",
+      "title": "Televisor",
       "price": 600,
-      "pictureUrl": "https://via.placeholder.com/150",
-      "cityId": "concordia",
-      "cityName": "Concordia",
-      "stock": 10
-    },
-    {
-      "id": 7,
-      "title": "Bananas",
-      "price": 600,
-      "pictureUrl": "https://via.placeholder.com/150",
-      "cityId": "gualeguaychu",
-      "cityName": "Gualeguaychú",
-      "stock": 10
-    },
-    {
-      "id": 8,
-      "title": "Bananas",
-      "price": 600,
-      "pictureUrl": "https://via.placeholder.com/150",
+      "pictureUrl": "/assets/televisor.webp",
       "cityId": "concordia",
       "cityName": "Concordia",
       "stock": 10
