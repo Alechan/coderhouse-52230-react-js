@@ -15,11 +15,6 @@ function ItemDetail({item}) {
         return URL.createObjectURL(imageBlob);
     };
 
-    const handleImageLoad = () => {
-        setImageLoaded(true)
-    };
-
-
     // Fetch the image when the component mounts
     useEffect(() => {
         fetchImage(item.pictureUrl)
@@ -43,7 +38,7 @@ function ItemDetail({item}) {
             <Card.Body>
                 {!imageLoaded ?
                     <Spinner animation="border" role="status" className="ml-2"/>
-                    : <Card.Img variant="top" src={img} onLoad={handleImageLoad}/>
+                    : <Card.Img variant="top" src={img} />
                 }
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>
