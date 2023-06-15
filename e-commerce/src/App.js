@@ -15,7 +15,7 @@ function App() {
             <Container fluid className="background-image-blur">
                 <Routes>
                     <Route path="/" element={<ItemListContainer greeting="¡Bienvenides a la tienda!"/>} />
-                    <Route path="/city/:id" element={<ItemListContainer greeting="¡Bienvenides a la tienda!"/>} />
+                    <Route path="/city/:id" element={<ItemListContainer />} />
                     <Route path="/item/:id" element={<ItemDetailContainer />} />
                 </Routes>
             </Container>
