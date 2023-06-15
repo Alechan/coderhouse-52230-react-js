@@ -1,5 +1,6 @@
 import {Cart4} from "react-bootstrap-icons";
 import Nav from "react-bootstrap/Nav";
+import {LinkContainer} from "react-router-bootstrap";
 
 const CartWidget = () => {
     return (
