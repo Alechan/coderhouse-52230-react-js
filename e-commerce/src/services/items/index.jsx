@@ -1,4 +1,4 @@
-const getItems = async () => {
+const getAllItems = async () => {
     const response = await fetch('http://localhost:3001/items');
     const items = await response.json();
 
@@ -11,9 +11,15 @@ const getItems = async () => {
 
 const getItem = async (id) => {
     // TODO: instead of fetching all items and then filtering in the client, fetch only the item with the given id
-    const response = await getItems();
+    const response = await getAllItems();
     // noinspection EqualityComparisonWithCoercionJS
     return response.find(item => item.id == id);
 }
+const getItemsInCity = async (cityId) => {
+    // TODO: instead of fetching all items and then filtering in the client, fetch only the items in a given city
+    const response = await getAllItems();
+    // noinspection EqualityComparisonWithCoercionJS
+    return response.filter(item => item.cityId == cityId);
+}
 
-export {getItems, getItem};
+export {getAllItems, getItem, getItemsInCity};
