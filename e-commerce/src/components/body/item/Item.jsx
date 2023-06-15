@@ -1,10 +1,10 @@
 import React from "react";
-import './ItemSummary.css';
+import './Item.css';
 import {Card} from "react-bootstrap";
 
-function ItemSummary({item}) {
+function Item({item}) {
     return (
-        <Card className="item-summary">
+        <Card className="item">
             <Card.Body>
                 <Card.Img variant="top" src={item.pictureUrl} />
                 <Card.Title>{item.title}</Card.Title>
@@ -16,4 +16,4 @@ function ItemSummary({item}) {
     );
 }
 
-export default ItemSummary;
+export default Item;

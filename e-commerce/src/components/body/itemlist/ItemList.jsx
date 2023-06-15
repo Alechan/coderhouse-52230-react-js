@@ -1,4 +1,4 @@
-import ItemSummary from "../itemsummary/ItemSummary";
+import Item from "../item/Item";
 import {Col, Container, Row} from "react-bootstrap";
 
 const ItemList = ({items}) => {
@@ -8,7 +8,7 @@ const ItemList = ({items}) => {
             <Row md={5} className="justify-content-center">
                 {items.map((item, index) => (
                     <Col key={index}>
-                        <ItemSummary item={item}/>
+                        <Item item={item}/>
                     </Col>
                 ))}
             </Row>
