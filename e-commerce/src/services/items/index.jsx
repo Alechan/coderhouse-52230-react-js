@@ -12,7 +12,8 @@ const getItems = async () => {
 const getItem = async (id) => {
     // TODO: instead of fetching all items and then filtering in the client, fetch only the item with the given id
     const response = await getItems();
-    return response.find(item => item.id === id);
+    // noinspection EqualityComparisonWithCoercionJS
+    return response.find(item => item.id == id);
 }
 
 export {getItems, getItem};
