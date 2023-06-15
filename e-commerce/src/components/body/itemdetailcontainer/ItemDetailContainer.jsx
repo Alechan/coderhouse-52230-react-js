@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getItem} from "../../../services";
 import ItemDetail from "../itemdetail/ItemDetail";
@@ -8,10 +8,15 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
             getItem(id)
                 .then(item => {
+                    if (!item) {
+                        navigate("/")
+                        return
+                    }
                     setItem(item)
                     setLoading(false)
                 })
