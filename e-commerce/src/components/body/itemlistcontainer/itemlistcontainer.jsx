@@ -13,32 +13,50 @@ const ItemListContainer = ({greeting}) => {
     const [h1, setH1] = useState();
     const navigate = useNavigate();
 
+    function loadFilterdItemsByCity(cityId) {
+        getItemsInCity(cityId)
+            .then(items => {
+                if (items.length === 0) {
+                    navigate("/")
+                    return
+                }
+                setItems(items)
+                setLoading(false)
+                // TODO: en vez de mostrar el id, mostrar el nombre de la ciudad
+                setH1(<h1> Mostrando productos de la ciudad de {id}</h1>);
+            })
+            // Ignore errors
+            .catch(() => {
+            });
+    }
+
+    function loadAllItems() {
+        getAllItems()
+            .then(items => {
+                setItems(items)
+                setLoading(false)
+            })
+            // Ignore errors
+            .catch(() => {
+            });
+        setH1(<h1>{greeting}</h1>);
+    }
+
     useEffect(() => {
+        // HACK: hace que cuando se mueva entre "/" y "/city/parana" no queden los componentes de la página anterior mientras carga
+        // Al "limpiar" los estados, no quedan residuos
+        // TODO: ver si hay una forma más limpia de hacer esto y no con este hack
+        setLoading(true)
+        setH1(null)
+
         if(id) {
-            getItemsInCity(id)
-                .then(items => {
-                    if (items.length === 0) {
-                        navigate("/")
-                        return
-                    }
-                    setItems(items)
-                    setLoading(false)
-                    // TODO: en vez de mostrar el id, mostrar el nombre de la ciudad
-                    setH1(<h1> Mostrando productos de la ciudad de {id}</h1>);
-                })
-                // Ignore errors
-                .catch(() => {});
+            loadFilterdItemsByCity(id);
         } else {
-            getAllItems()
-                .then(items => {
-                    setItems(items)
-                    setLoading(false)
-                })
-                // Ignore errors
-                .catch(() => {});
-            setH1(<h1>{greeting}</h1>);
+            loadAllItems();
         }
-    }, [id, loading]);
+    },
+        [id]
+    );
 
     return (
                 <Row className="justify-content-center align-items-center">
