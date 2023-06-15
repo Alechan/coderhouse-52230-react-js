@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import './Item.css';
 import {Card, Spinner} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 function Item({item}) {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -26,22 +27,25 @@ function Item({item}) {
                 setImageLoaded(true);
             })
             // Ignore errors
-            .catch(() => {});
+            .catch(() => {
+            });
     }, [])
 
     return (
+        <Link to={`/item/${item.id}`} className="card-link">
         <Card className="item">
-            <Card.Body>
-                {!imageLoaded ?
-                    <Spinner animation="border" role="status" className="ml-2"/>
-                    : <Card.Img variant="top" src={img} onLoad={handleImageLoad}/>
-                }
-                <Card.Title>{item.title}</Card.Title>
-                <Card.Text>
-                    {item.cityName}
-                </Card.Text>
-            </Card.Body>
+                <Card.Body>
+                    {!imageLoaded ?
+                        <Spinner animation="border" role="status" className="ml-2"/>
+                        : <Card.Img variant="top" src={img} onLoad={handleImageLoad}/>
+                    }
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>
+                        {item.cityName}
+                    </Card.Text>
+                </Card.Body>
         </Card>
+        </Link>
     );
 }
 

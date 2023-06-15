@@ -2,3 +2,12 @@
     background-color: #d3d3d3;
     text-align: center;
 }
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover {
+    color: green;
+}
