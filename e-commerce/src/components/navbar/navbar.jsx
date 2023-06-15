@@ -7,6 +7,7 @@ import CartWidget from "./cartwidget";
 import './navbar.css';
 import {useEffect, useState} from "react";
 import {getCities} from "../../services";
+import {Spinner} from "react-bootstrap";
 
 function ShopBrand() {
     return (
@@ -49,7 +50,10 @@ function MenuItems() {
         return (
             <NavDropdown title="Ciudades" id="basic-nav-ciudades">
                 {loading ?
-                    <NavDropdown.Item>Cargando ciudades...</NavDropdown.Item>
+                    <NavDropdown.Item>
+                        <span style={{ marginRight: '10px' }}>Cargando ciudades ...</span>
+                        <Spinner animation="border" role="status" size="sm"/>
+                    </NavDropdown.Item>
                     : cities.map((city, index) => (
                         <CityLink key={index} city={city.name} path={`/city/${city.id}`}/>
                         )

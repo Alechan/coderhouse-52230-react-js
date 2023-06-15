@@ -1,7 +1,4 @@
 .item-summary {
     background-color: #d3d3d3;
-    /* Don't overlap cards*/
-    width: 220px;
-    height: 270px;
     text-align: center;
 }

@@ -34,6 +34,9 @@
 .nav .nav-link.active {
     background-color: green;
 }
+.nav.active{
+    background-color: green;
+}
 
 .nav .nav-link:hover {
     color: lightgreen;

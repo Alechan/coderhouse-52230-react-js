@@ -1,4 +1,4 @@
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Spinner, Container} from 'react-bootstrap';
 import './itemlistcontainer.css';
 import ItemList from "../itemlist/ItemList";
 import {useEffect, useState} from "react";
@@ -21,7 +21,10 @@ const ItemListContainer = ({greeting}) => {
                     <Col className="col-greeter">
                         <h1>{greeting}</h1>
                         {loading ?
-                            <h2>Cargando productos...</h2>
+                            <Container>
+                                <h2 className="d-inline">Cargando productos... </h2>
+                                <Spinner animation="border" role="status" className="ml-2"/>
+                            </Container>
                             : <ItemList items={items}/>
                         }
                     </Col>
