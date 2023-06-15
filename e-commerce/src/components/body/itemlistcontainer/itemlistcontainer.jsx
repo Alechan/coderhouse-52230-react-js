@@ -13,8 +13,10 @@ const ItemListContainer = ({greeting}) => {
             .then(items => {
                 setItems(items)
                 setLoading(false)
-            });
-    });
+            })
+            // Ignore errors
+            .catch(() => {});
+    }, []);
 
     return (
                 <Row className="justify-content-center align-items-center">

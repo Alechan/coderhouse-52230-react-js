@@ -41,8 +41,8 @@
       "title": "Silla",
       "price": 600,
       "pictureUrl": "/assets/silla.jpg",
-      "cityId": "concordia",
-      "cityName": "Concordia",
+      "cityId": "gualeguaychu",
+      "cityName": "Gualeguaychú",
       "stock": 10
     },
     {
@@ -50,8 +50,8 @@
       "title": "Televisor",
       "price": 600,
       "pictureUrl": "/assets/televisor.webp",
-      "cityId": "concordia",
-      "cityName": "Concordia",
+      "cityId": "guaeguaychu",
+      "cityName": "Gualeguaychú",
       "stock": 10
     }
   ],

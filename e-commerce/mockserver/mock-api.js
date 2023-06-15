@@ -6,6 +6,13 @@ const server = jsonServer.create();
 const router = jsonServer.router('mockserver/db.json');
 const middlewares = jsonServer.defaults();
 
+// Avoid CORS issues
+server.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // Add "sync" delay to all requests
 server.use((req, res, next) => {
     let seconds = 1000;

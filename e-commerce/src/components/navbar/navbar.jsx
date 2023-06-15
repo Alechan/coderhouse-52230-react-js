@@ -37,8 +37,11 @@ function MenuItems() {
             .then(cities => {
                 setCities(cities)
                 setLoading(false)
-            });
+            })
+            // Ignore errors
+            .catch(() => {});
     }, [])
+
     const CityLink = ({city, path}) => {
         return (
             <LinkContainer to={path}>
