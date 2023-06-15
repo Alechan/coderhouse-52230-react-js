@@ -4,8 +4,16 @@ var jsonServer = require('json-server')
 var demodata = require('./db.json')
 const middlewares = jsonServer.defaults();
 
-var router = jsonServer.router(demodata) // Express router
-var server = jsonServer.create()       // Express server
+var router = jsonServer.router(demodata)
+var server = jsonServer.create()
+
+// Avoid CORS issues
+server.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 server.use('/assets', express.static(path.join(__dirname, 'assets')))
 server.use(router)
