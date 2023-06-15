@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Mesa",
       "price": 1000,
-      "pictureUrl": "https://via.placeholder.com/150",
+      "pictureUrl": "./assets/mesa.png",
       "cityId": "parana",
       "cityName": "Paraná",
       "stock": 5
