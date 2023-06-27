@@ -19,15 +19,27 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     };
 
-    return (
+    const stockAvailableElement =
         <div>
             <ButtonGroup type="checkbox" className="mb-2">
                 <Button size="sm" variant="secondary" onClick={decrease}>-</Button>
                 <span className="item-count-n">{count}</span>
                 <Button size="sm" variant="secondary" onClick={increase}>+</Button>
-                <Button size="sm" variant="success" onClick={onAdd} disabled={count === 0} >Agregar al carrito</Button>
+                <Button size="sm" variant="success" onClick={onAdd} disabled={count === 0}>
+                    Agregar al carrito
+                </Button>
             </ButtonGroup>
         </div>
+    const stockNotAvailableElement = <p>Sin stock</p>;
+    return (
+        <>
+
+            {
+                stock > 0 ?
+                    stockAvailableElement
+                    : stockNotAvailableElement
+            }
+        </>
     );
 };
 
