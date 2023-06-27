@@ -68,7 +68,7 @@ const ItemListContainer = ({greeting}) => {
                                 <Spinner animation="border" role="status" className="ml-2"/>
                             </Container>
                             : <Container>
-                                <h2>Haz click en un producto para ver sus detalles</h2>
+                                <h2 className="text-center">Haz click en un producto para ver sus detalles</h2>
                                 <ItemList items={items}/>
                             </Container>
                         }
