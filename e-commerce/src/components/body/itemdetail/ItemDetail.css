@@ -6,3 +6,7 @@
     width: 350px;
     height: 500px;
 }
+
+.modal-home-button, .modal-cart-button {
+    margin: 10px;
+}
