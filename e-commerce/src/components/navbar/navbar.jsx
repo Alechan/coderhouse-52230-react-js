@@ -8,10 +8,11 @@ import './navbar.css';
 import {useEffect, useState} from "react";
 import {getCities} from "../../services";
 import {Spinner} from "react-bootstrap";
+import {ROUTES} from "../../constants";
 
 function ShopBrand() {
     return (
-        <LinkContainer to="/">
+        <LinkContainer to={ROUTES.HOME}>
             <Navbar.Brand>
                 <Container className="d-flex align-items-center">
                     <span className="span-pororo-emoji"> 🍿 </span>
@@ -58,7 +59,7 @@ function MenuItems() {
                         <Spinner animation="border" role="status" size="sm"/>
                     </NavDropdown.Item>
                     : cities.map((city, index) => (
-                        <CityLink key={index} city={city.name} path={`/city/${city.id}`}/>
+                        <CityLink key={index} city={city.name} path={ROUTES.CITY_ITEMS_DYNAMIC(city.id)}/>
                         )
                     )
                 }

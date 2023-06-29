@@ -4,6 +4,7 @@ import './ItemDetail.css';
 
 import {Button, Card, Modal, Spinner} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
+import {ROUTES} from "../../../constants";
 
 function ItemDetail({item}) {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -61,7 +62,7 @@ function ItemDetail({item}) {
                             <p>¡Ítems agregados al carrito!</p>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <LinkContainer to="/" className="modal-home-button">
+                            <LinkContainer to={ROUTES.HOME} className="modal-home-button">
                                 <Button>Seguir comprando</Button>
                             </LinkContainer>
                             <LinkContainer to="/cart" className="modal-cart-button">

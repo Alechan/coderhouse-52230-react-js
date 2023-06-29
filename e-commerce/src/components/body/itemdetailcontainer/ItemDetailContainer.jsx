@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {getItem} from "../../../services";
 import ItemDetail from "../itemdetail/ItemDetail";
 import {Col, Container, Row, Spinner} from "react-bootstrap";
+import {ROUTES} from "../../../constants";
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
@@ -14,7 +15,7 @@ const ItemDetailContainer = () => {
             getItem(id)
                 .then(item => {
                     if (!item) {
-                        navigate("/")
+                        navigate(ROUTES.HOME)
                         return
                     }
                     setItem(item)

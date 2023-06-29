@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import './Item.css';
 import {Card, Spinner} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {ROUTES} from "../../../constants";
 
 function Item({item}) {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -27,7 +28,7 @@ function Item({item}) {
     }, [])
 
     return (
-        <Link to={`/item/${item.id}`} className="card-link">
+        <Link to={ROUTES.ITEM_DETAIL_DYNAMIC(item.id)} className="card-link">
         <Card className="item">
                 <Card.Body>
                     {!imageLoaded ?

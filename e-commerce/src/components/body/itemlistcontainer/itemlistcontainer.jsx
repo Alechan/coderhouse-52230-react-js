@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {getAllItems} from "../../../services";
 import {useNavigate, useParams} from "react-router-dom";
 import {getItemsInCity} from "../../../services/items";
+import {ROUTES} from "../../../constants";
 
 const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([]);
@@ -17,7 +18,7 @@ const ItemListContainer = ({greeting}) => {
         getItemsInCity(cityId)
             .then(items => {
                 if (items.length === 0) {
-                    navigate("/")
+                    navigate(ROUTES.HOME)
                     return
                 }
                 setItems(items)
