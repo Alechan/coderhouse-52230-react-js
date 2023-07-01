@@ -25,6 +25,13 @@ export const CartContextProvider = ({children}) => {
         setCart(prevState => [...prevState, {item, quantity}]
         );
     }
+    const removeItemFromCart = (itemId) => {
+        setCart(prevState => prevState.filter(itemAndQuantity => itemAndQuantity.item.id !== itemId));
+    }
+
+    const clearCart = () => {
+        setCart([])
+    }
 
     const isInCart = (itemId) => {
         return cart.some(itemAndQuantity => itemAndQuantity.item.id === itemId)
