@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import './Item.css';
+import './Item.scss';
 import {Card, Spinner} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../constants";

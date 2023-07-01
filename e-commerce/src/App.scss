@@ -1,0 +1,27 @@
+
+$table-bg: rgba(white, 0.60);
+$table-striped-bg: rgba(white, 0.45);
+$table-hover-bg: rgba(green, 0.65);
+$table-hover-color:   white;
+
+@import 'bootstrap/scss/bootstrap';
+
+.background-image-container {
+  height: 100vh;
+  background-image: url('orange-tree-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.background-image-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+}

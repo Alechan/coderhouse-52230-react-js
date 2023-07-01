@@ -1,12 +1,12 @@
 import {Trash3} from "react-bootstrap-icons";
 import {Button, ButtonGroup} from 'react-bootstrap';
-import './ItemCountCart.css';
+import './ItemCountCart.scss';
 
 const ItemCountCart = ({stock, count, onIncrease, onDecrease, onRemove}) => {
 
     const stockAvailableElement =
         <div>
-            <ButtonGroup type="checkbox" className="mb-2">
+            <ButtonGroup type="checkbox" className="m-1">
                 <Button size="sm" variant="secondary" onClick={onDecrease}>-</Button>
                 <span className="item-count-cart-n">{count}</span>
                 <Button size="sm" variant="secondary" onClick={onIncrease}>+</Button>

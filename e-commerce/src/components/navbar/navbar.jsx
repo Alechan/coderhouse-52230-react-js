@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {LinkContainer} from 'react-router-bootstrap'
 import NavbarCartWidget from "./NavbarCartWidget";
-import './navbar.css';
+import './navbar.scss';
 import {useContext, useEffect, useState} from "react";
 import {getCities} from "../../services";
 import {Spinner} from "react-bootstrap";

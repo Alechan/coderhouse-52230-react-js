@@ -1,5 +1,5 @@
 import {Row, Col, Spinner, Container} from 'react-bootstrap';
-import './itemlistcontainer.css';
+import './itemlistcontainer.scss';
 import ItemList from "../itemlist/ItemList";
 import {useEffect, useState} from "react";
 import {getAllItems} from "../../../services";

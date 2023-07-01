@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, ButtonGroup} from 'react-bootstrap';
-import './ItemCount.css';
+import './ItemCount.scss';
 
 const ItemCount = ({stock, initial, onAdd}) => {
     const [count, setCount] = useState(initial);
@@ -20,8 +20,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
     };
 
     const stockAvailableElement =
-        <div>
-            <ButtonGroup type="checkbox" className="mb-2">
+        <div className="m-1">
+            <ButtonGroup type="checkbox">
                 <Button size="sm" variant="secondary" onClick={decrease}>-</Button>
                 <span className="item-count-n">{count}</span>
                 <Button size="sm" variant="secondary" onClick={increase}>+</Button>

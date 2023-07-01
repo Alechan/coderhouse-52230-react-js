@@ -9,7 +9,7 @@ const NavbarCartWidget = ({nItems}) => {
                 nItems > 0 ?
                     <LinkContainer to="/cart">
                         <Nav.Link>
-                            <Cart4/>
+                            <Cart4 color="white"/>
                             <span className="span-cart-widget">{nItems}</span>
                         </Nav.Link>
                     </LinkContainer>

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import ItemCount from "../itemcount/ItemCount";
-import './ItemDetail.css';
+import './ItemDetail.scss';
 
 import {Button, Card, Modal, Spinner} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
@@ -53,8 +53,8 @@ function ItemDetail({item}) {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className="d-flex justify-content-between align-items-center">
-                    <p>${item.price}</p>
-                    <p>Stock: {item.stock}</p>
+                    <span className="align-middle m-1">${item.price}</span>
+                    <span className="align-middle m-1">Stock: {item.stock}</span>
                     <ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>
                 </Card.Footer>
             </Card>
