@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {LinkContainer} from 'react-router-bootstrap'
-import CartWidget from "./cartwidget";
+import NavbarCartWidget from "./NavbarCartWidget";
 import './navbar.css';
 import {useEffect, useState} from "react";
 import {getCities} from "../../services";
@@ -82,7 +82,7 @@ function NavBar() {
                 <BurgerIcon/>
                 <MenuItems/>
                 <Navbar.Collapse className="justify-content-end">
-                    <CartWidget/>
+                    <NavbarCartWidget/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
