@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import React, {useContext, useState} from "react";
 import ItemCountCart from "../itemcountcart/ItemCountCart";
 import {Button, Modal} from "react-bootstrap";
-import './CartContainer.css'
+import './CartContainer.scss'
 
 const CartContainer = () => {
     const {cart, addItemToCart, removeItemFromCart} = useContext(CartContext);
@@ -34,32 +34,50 @@ const CartContainer = () => {
     const modalHandleKeepItem = () => setItemTryingToReduceToZero(null)
 
     return (
-        <div>
-            <h1>Cart</h1>
+        <div >
+            <h1 className="text-center">¡Tenés estos ítems en tu carrito!</h1>
             {
                 cart.length === 0 ?
                     <p>Your cart is empty.</p>
                     :
-                    <Table striped hover borderless>
+                    <Table striped hover borderless style={{borderRadius: "10px"}}>
                         <tbody>
                         {cart.map(({item, quantity}, index) => {
                                 return <tr>
                                     {/* Show index to let the buyer know how many unique items are in the cart*/}
-                                    <td>{index + 1}</td>
-                                    <td>{item.title}</td>
+                                    <td className="align-middle">
+                                        <p className="m-1">
+                                            {index + 1}
+                                        </p>
+                                    </td>
+                                    <td className="align-middle">
+                                        <p className="m-1">
+                                            {item.title}
+                                        </p>
+                                    </td>
                                     {/* //TODO: cuando fetcheo los ítems aprovechar y fetchear la imagen así no tengo que fetchearla en todos lados */}
-                                    <td>{item.pictureUrl}</td>
-                                    <td>{item.cityName}</td>
+                                    <td className="align-middle">
+                                        <p className="m-1">
+                                            {item.pictureUrl}
+                                        </p>
+                                    </td>
+                                    <td className="align-middle">
+                                        <p className="m-1">
+                                            {item.cityName}
+                                        </p>
+                                    </td>
                                     <td>
-                                        <p>${item.price}</p>
-                                        <p>Stock: {item.stock}</p>
-                                        <ItemCountCart
-                                            count={quantity}
-                                            onDecrease={() => handleReduceQuantity(item, quantity)}
-                                            onIncrease={() => handleIncreaseQuantity(item)}
-                                            stock={item.stock}
-                                            onRemove={() => setItemTryingToReduceToZero(item)}
-                                        />
+                                        <div className="d-flex justify-content-center align-items-center m-1">
+                                            <p className="m-1">${item.price}</p>
+                                            <p className="m-1">Stock: {item.stock}</p>
+                                            <ItemCountCart
+                                                count={quantity}
+                                                onDecrease={() => handleReduceQuantity(item, quantity)}
+                                                onIncrease={() => handleIncreaseQuantity(item)}
+                                                stock={item.stock}
+                                                onRemove={() => setItemTryingToReduceToZero(item)}
+                                            />
+                                        </div>
                                     </td>
                                 </tr>
                             }
