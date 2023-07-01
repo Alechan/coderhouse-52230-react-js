@@ -1,0 +1,6 @@
+.item-count-cart-n {
+    display: flex;
+    align-items: center;
+    border: 1px solid #8f8f8f;
+    padding: 5px
+}
