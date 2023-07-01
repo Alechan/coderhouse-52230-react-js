@@ -5,10 +5,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import {LinkContainer} from 'react-router-bootstrap'
 import NavbarCartWidget from "./NavbarCartWidget";
 import './navbar.css';
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {getCities} from "../../services";
 import {Spinner} from "react-bootstrap";
 import {ROUTES} from "../../constants";
+import {CartContext} from "../../context/cart";
 
 function ShopBrand() {
     return (
@@ -75,6 +76,7 @@ function MenuItems() {
 }
 
 function NavBar() {
+    const {getTotalItems} = useContext(CartContext);
     return (
         <Navbar expand="lg">
             <Container>
@@ -82,7 +84,7 @@ function NavBar() {
                 <BurgerIcon/>
                 <MenuItems/>
                 <Navbar.Collapse className="justify-content-end">
-                    <NavbarCartWidget/>
+                    <NavbarCartWidget nItems={getTotalItems()}/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

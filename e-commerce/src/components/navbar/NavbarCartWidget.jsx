@@ -4,15 +4,20 @@ import {LinkContainer} from "react-router-bootstrap";
 import {CartContext} from "../../context/cart";
 import {useContext} from "react";
 
-const NavbarCartWidget = () => {
-    const {getTotalItems} = useContext(CartContext);
+const NavbarCartWidget = ({nItems}) => {
     return (
-        <LinkContainer to="/cart">
-            <Nav.Link>
-                <Cart4/>
-                <span className="span-cart-widget">{getTotalItems()}</span>
-            </Nav.Link>
-        </LinkContainer>
+        <>
+            {
+                nItems > 0 ?
+                    <LinkContainer to="/cart">
+                        <Nav.Link>
+                            <Cart4/>
+                            <span className="span-cart-widget">{nItems}</span>
+                        </Nav.Link>
+                    </LinkContainer>
+                    : null
+            }
+        </>
     )
 }
 
