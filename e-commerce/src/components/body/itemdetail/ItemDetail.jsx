@@ -1,15 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import ItemCount from "../itemcount/ItemCount";
 import './ItemDetail.css';
 
 import {Button, Card, Modal, Spinner} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
 import {ROUTES} from "../../../constants";
+import {CartContext} from "../../../context/cart";
 
 function ItemDetail({item}) {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [img, setImg] = useState();
     const [shouldShowModal, setShouldShowModal] = useState(false);
+    const {addItemToCart} = useContext(CartContext);
 
     // TODO: no pude hacer andar el spinner con un <img onload>, así que hago el fetch a manopla nomás
     const fetchImage = async (url) => {
@@ -34,6 +36,7 @@ function ItemDetail({item}) {
 
     // TODO: Todavía no definimos qué va a hacer onAdd
     const onAdd = (count) => {
+        addItemToCart(item, count);
         setShouldShowModal(true);
     }
     return (
