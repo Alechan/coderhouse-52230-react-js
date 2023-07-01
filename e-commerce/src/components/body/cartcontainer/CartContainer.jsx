@@ -6,7 +6,7 @@ import {Button, Modal} from "react-bootstrap";
 import './CartContainer.scss'
 
 const CartContainer = () => {
-    const {cart, addItemToCart, removeItemFromCart} = useContext(CartContext);
+    const {cart, addItemToCart, removeItemFromCart, getTotalPrice} = useContext(CartContext);
     const [itemTryingToReduceToZero, setItemTryingToReduceToZero] = useState(null);
 
     const handleIncreaseQuantity = (item) => {
@@ -83,6 +83,12 @@ const CartContainer = () => {
                             }
                         )
                         }
+                        <tr>
+                            <td colSpan="5" className="align-middle align-items-center justify-content-center text-center">
+                                    Total: ${getTotalPrice()}
+
+                            </td>
+                            </tr>
                         </tbody>
                     </Table>
             }
