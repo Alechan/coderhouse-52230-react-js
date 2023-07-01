@@ -10,7 +10,6 @@ export const CartContext = createContext(
 export const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const addItemToCart = (item, quantity) => {
-        console.log(item, quantity)
         if (isInCart(item.id)) {
             // Update instead of adding a new item if it's already in the cart
             setCart(prevState => {
@@ -21,26 +20,22 @@ export const CartContextProvider = ({children}) => {
             })
             return
         }
+
+        // If it's not in the cart, add everything
         setCart(prevState => [...prevState, {item, quantity}]
-    );
-
-
+        );
     }
-    const removeItem = (itemId) => {
 
-    }
-    const clear = () => {
-
-    }
     const isInCart = (itemId) => {
-
+        return cart.some(itemAndQuantity => itemAndQuantity.item.id === itemId)
     }
+
     const getTotalItems = () => {
         return cart.reduce((accum, itemAndQuantity) => {
-            accum += itemAndQuantity.quantity
-            return accum
-        }
-        , 0
+                accum += itemAndQuantity.quantity
+                return accum
+            }
+            , 0
         )
     }
     return (
