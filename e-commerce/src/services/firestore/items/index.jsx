@@ -1,4 +1,4 @@
-import {doc, collection, getDoc, getDocs, getFirestore} from 'firebase/firestore';
+import {where, query, doc, collection, getDoc, getDocs, getFirestore} from 'firebase/firestore';
 
 
 const getAllItems = async () => {
@@ -18,10 +18,16 @@ const getItem = async (id) => {
 }
 
 const getItemsInCity = async (cityId) => {
-    // TODO: instead of fetching all items and then filtering in the client, fetch only the items in a given city
-    const response = await getAllItems();
-    // noinspection EqualityComparisonWithCoercionJS
-    return response.filter(item => item.cityId == cityId);
+    const db = getFirestore();
+    const q = query(
+        collection(db, "items"),
+        where("cityId", "==", cityId)
+    );
+
+    const snapshot = await getDocs(q);
+    return snapshot
+        .docs
+        .map((doc) => ({id: doc.id, ...doc.data()}));
 }
 
 export {getAllItems, getItem, getItemsInCity};
