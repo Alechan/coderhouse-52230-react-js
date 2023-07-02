@@ -1,6 +1,6 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getItem} from "../../../services/mock";
+import {getItem} from "../../../services/firestore";
 import ItemDetail from "../itemdetail/ItemDetail";
 import {Col, Container, Row, Spinner} from "react-bootstrap";
 import {ROUTES} from "../../../constants";
