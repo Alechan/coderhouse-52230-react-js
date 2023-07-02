@@ -2,7 +2,7 @@ import {Row, Col, Spinner, Container} from 'react-bootstrap';
 import './itemlistcontainer.scss';
 import ItemList from "../itemlist/ItemList";
 import {useEffect, useState} from "react";
-import {getAllItems} from "../../../services/mock";
+import {getAllItems} from "../../../services/firestore";
 import {useNavigate, useParams} from "react-router-dom";
 import {getItemsInCity} from "../../../services/mock/items";
 import {ROUTES} from "../../../constants";
