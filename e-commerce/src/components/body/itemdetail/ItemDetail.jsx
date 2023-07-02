@@ -31,7 +31,7 @@ function ItemDetail({item}) {
                 .catch(() => {
                 });
         },
-        []
+        [item.pictureUrl]
     )
 
     // TODO: Todavía no definimos qué va a hacer onAdd

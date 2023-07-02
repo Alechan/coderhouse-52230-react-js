@@ -25,7 +25,9 @@ function Item({item}) {
             // Ignore errors
             .catch(() => {
             });
-    }, [])
+    },
+        [item.pictureUrl]
+    )
 
     return (
         <Link to={ROUTES.ITEM_DETAIL_DYNAMIC(item.id)} className="card-link">

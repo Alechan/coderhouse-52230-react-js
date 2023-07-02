@@ -1,6 +1,6 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getItem} from "../../../services";
+import {getItem} from "../../../services/mock";
 import ItemDetail from "../itemdetail/ItemDetail";
 import {Col, Container, Row, Spinner} from "react-bootstrap";
 import {ROUTES} from "../../../constants";
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
                 .catch(() => {
                 });
         },
-        []
+        [id, navigate]
     );
 
     return (
