@@ -43,15 +43,13 @@
 }
 
 .dropdown-menu {
-    background-color: green;
-}
-
-.dropdown-menu .dropdown-item {
+    background-color: green !important;
     color: white;
 }
 
+
 .nav-link {
-    color:white;
+    color:white !important;
 }
 
 .nav-link:hover {
@@ -65,4 +63,8 @@
 .span-cart-widget {
     color:white;
    margin-left: 2px;
+}
+.span-cart-widget:hover {
+    color: lightgreen;
+
 }
