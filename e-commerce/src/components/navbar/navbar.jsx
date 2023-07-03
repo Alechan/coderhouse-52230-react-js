@@ -6,7 +6,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 import NavbarCartWidget from "./NavbarCartWidget";
 import './navbar.scss';
 import {useContext, useEffect, useState} from "react";
-import {getCities} from "../../services/mock";
+import {getCities} from "../../services/firestore";
 import {Spinner} from "react-bootstrap";
 import {ROUTES} from "../../constants";
 import {CartContext} from "../../context/cart";
