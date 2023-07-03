@@ -22,9 +22,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const stockAvailableElement =
         <div className="m-1">
             <ButtonGroup type="checkbox">
-                <Button size="sm" variant="secondary" onClick={decrease}>-</Button>
+                <Button size="sm" variant="success" onClick={decrease}>-</Button>
                 <span className="item-count-n">{count}</span>
-                <Button size="sm" variant="secondary" onClick={increase}>+</Button>
+                <Button size="sm" variant="success" onClick={increase}>+</Button>
                 <Button size="sm" variant="success" onClick={() => onAdd(count)} disabled={count === 0 || count > stock}>
                     Agregar al carrito
                 </Button>

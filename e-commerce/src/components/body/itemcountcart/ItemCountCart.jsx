@@ -7,9 +7,9 @@ const ItemCountCart = ({stock, count, onIncrease, onDecrease, onRemove}) => {
     const stockAvailableElement =
         <div>
             <ButtonGroup type="checkbox" className="m-1">
-                <Button size="sm" variant="secondary" onClick={onDecrease}>-</Button>
+                <Button size="sm" variant="success" onClick={onDecrease}>-</Button>
                 <span className="item-count-cart-n">{count}</span>
-                <Button size="sm" variant="secondary" onClick={onIncrease}>+</Button>
+                <Button size="sm" variant="success" onClick={onIncrease}>+</Button>
                 <Button size="sm" variant="danger" onClick={() => onRemove()} disabled={count === 0}>
                     <Trash3/>
                 </Button>
