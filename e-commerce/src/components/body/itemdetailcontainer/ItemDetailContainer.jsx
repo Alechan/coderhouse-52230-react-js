@@ -1,23 +1,19 @@
-import {useNavigate, useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import {getItem} from "../../../services/firestore";
 import ItemDetail from "../itemdetail/ItemDetail";
-import {Col, Container, Row, Spinner} from "react-bootstrap";
+import {Button, Col, Container, Row, Spinner} from "react-bootstrap";
 import {ROUTES} from "../../../constants";
+import {LinkContainer} from "react-router-bootstrap";
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
 
     useEffect(() => {
             getItem(id)
                 .then(item => {
-                    if (!item) {
-                        navigate(ROUTES.HOME)
-                        return
-                    }
                     setItem(item)
                     setLoading(false)
                 })
@@ -25,21 +21,31 @@ const ItemDetailContainer = () => {
                 .catch(() => {
                 });
         },
-        [id, navigate]
+        [id]
     );
 
     return (
-        <Row className="justify-content-center align-items-center">
-            <Col className="col-greeter">
-                {loading ?
-                    <Container>
-                        <h2 className="d-inline">Cargando producto... </h2>
-                        <Spinner animation="border" role="status" className="ml-2"/>
-                    </Container>
-                    : <ItemDetail item={item}/>
-                }
-            </Col>
-        </Row>
+        <>
+            <Row className="justify-content-center align-items-center">
+                <Col className="col-greeter">
+                    {loading ?
+                        <Container>
+                            <h2 className="d-inline">Cargando producto... </h2>
+                            <Spinner animation="border" role="status" className="ml-2"/>
+                        </Container>
+                        : !!item ?
+                            <ItemDetail item={item}/>
+                            :
+                            <div>
+                                <h1>No encontramos ese producto :(</h1>
+                                <LinkContainer to={ROUTES.HOME} className="d-block">
+                                    <Button>Ir a buscar otros productos</Button>
+                                </LinkContainer>
+                            </div>
+                    }
+                </Col>
+            </Row>
+        </>
     )
 }
 

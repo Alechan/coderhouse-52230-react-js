@@ -14,6 +14,9 @@ const getItem = async (id) => {
     const db = getFirestore();
     const itemRef = doc(db, 'items', id);
     const snapshot = await getDoc(itemRef);
+    if (!snapshot.exists()) {
+        return null
+    }
     return {id: snapshot.id, ...snapshot.data()}
 }
 
