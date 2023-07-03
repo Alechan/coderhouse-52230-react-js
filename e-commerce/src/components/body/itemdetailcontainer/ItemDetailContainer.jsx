@@ -1,19 +1,25 @@
 import {useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import {getItem} from "../../../services/firestore";
 import ItemDetail from "../itemdetail/ItemDetail";
 import {Button, Col, Container, Row, Spinner} from "react-bootstrap";
 import {ROUTES} from "../../../constants";
 import {LinkContainer} from "react-router-bootstrap";
+import {CartContext} from "../../../context/cart";
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(true);
+    const {cart} = useContext(CartContext);
+
+    const quantityInCart = cart.find(cartItem => cartItem.item.id === id)?.quantity || 0;
 
     useEffect(() => {
             getItem(id)
                 .then(item => {
+                    // Update in realtime the stock of the item to prevent going below 0
+                    item.stock = item.stock - quantityInCart;
                     setItem(item)
                     setLoading(false)
                 })

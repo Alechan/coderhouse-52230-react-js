@@ -34,7 +34,6 @@ function ItemDetail({item}) {
         [item.pictureUrl]
     )
 
-    // TODO: Todavía no definimos qué va a hacer onAdd
     const onAdd = (count) => {
         addItemToCart(item, count);
         setShouldShowModal(true);
