@@ -1,7 +1,7 @@
 import {Button, Modal} from "react-bootstrap";
 import React from "react";
 
-const CartListModal = ({shouldShowModal, pMsg, buttons}) => {
+const ModalWithPAndButtons = ({shouldShowModal, pMsg, buttons}) => {
 
     return (
         <Modal className="justify-content-center align-items-center" centered show={shouldShowModal}>
@@ -25,5 +25,5 @@ const CartListModal = ({shouldShowModal, pMsg, buttons}) => {
     );
 }
 
-export default CartListModal;
+export default ModalWithPAndButtons;
 

@@ -4,7 +4,7 @@ import {Button} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
 import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
-import CartListModal from "../cartlistmodal/CartListModal";
+import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
 
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart, getTotalItems} = useContext(CartContext);
@@ -68,6 +68,10 @@ const CartListContainer = () => {
                             <LinkContainer to={ROUTES.HOME} className="modal-home-button">
                                 <Button className="button-with-margin">Seguir comprando</Button>
                             </LinkContainer>
+                            <Button variant="success" className="button-with-margin"
+                                    onClick={() => {}}>
+                                Finalizar compra
+                            </Button>
                             <Button variant="danger" className="button-with-margin"
                                     onClick={() => setShowClearCartModal(true)}>
                                 Vaciar carrito
@@ -76,7 +80,7 @@ const CartListContainer = () => {
                     </>
             }
             {/*Modal to remove an item*/}
-            <CartListModal
+            <ModalWithPAndButtons
                 shouldShowModal={!!itemTryingToReduceToZero}
                 pMsg={"¿Estás segure de borrar el ítem del carrito?"}
                 buttons={[
@@ -93,7 +97,7 @@ const CartListContainer = () => {
                 ]}
             />
             {/*Modal to clear the cart*/}
-            <CartListModal
+            <ModalWithPAndButtons
                 shouldShowModal={showClearCartModal}
                 pMsg={"¿Estás segure que querés vaciar el carrito?"}
                 buttons={[
