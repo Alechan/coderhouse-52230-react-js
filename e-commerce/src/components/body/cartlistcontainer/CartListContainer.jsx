@@ -1,7 +1,6 @@
 import {CartContext} from "../../../context/cart";
 import React, {useContext, useState} from "react";
 import {Button} from "react-bootstrap";
-import './CartListContainer.scss'
 import {LinkContainer} from "react-router-bootstrap";
 import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
@@ -10,6 +9,7 @@ import CartListModal from "../cartlistmodal/CartListModal";
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart} = useContext(CartContext);
     const [itemTryingToReduceToZero, setItemTryingToReduceToZero] = useState(null);
+    const [showClearCartModal, setShowClearCartModal] = useState(false);
 
     const handleIncreaseQuantity = (item, prevQuantity) => {
         if (prevQuantity < item.stock) {
@@ -31,6 +31,11 @@ const CartListContainer = () => {
 
     const handleClearCart = () => {
         clearCart();
+    }
+
+    const modalHandleClearCart = () => {
+        handleClearCart();
+        setShowClearCartModal(false);
     }
 
     const modalHandleRemoveItem = () => {
@@ -60,15 +65,16 @@ const CartListContainer = () => {
                         />
                         <div className="d-flex justify-content-center">
                             <LinkContainer to={ROUTES.HOME} className="modal-home-button">
-                                <Button>Seguir comprando</Button>
+                                <Button className="button-with-margin">Seguir comprando</Button>
                             </LinkContainer>
-                            <Button variant="danger" className="cart-modal-remove-item"
-                                    onClick={() => handleClearCart()}>
+                            <Button variant="danger" className="button-with-margin"
+                                    onClick={() => setShowClearCartModal(true)}>
                                 Vaciar carrito
                             </Button>
                         </div>
                     </>
             }
+            {/*Modal to remove an item*/}
             <CartListModal
                 shouldShowModal={!!itemTryingToReduceToZero}
                 pMsg={"¿Estás segure de borrar el ítem del carrito?"}
@@ -85,6 +91,24 @@ const CartListContainer = () => {
                     }
                 ]}
             />
+            {/*Modal to clear the cart*/}
+            <CartListModal
+                shouldShowModal={showClearCartModal}
+                pMsg={"¿Estás segure que querés vaciar el carrito?"}
+                buttons={[
+                    {
+                        variant: "danger",
+                        onClick: () => modalHandleClearCart(),
+                        text: "Vaciar carrito"
+                    },
+                    {
+                        variant: "success",
+                        onClick: () => setShowClearCartModal(false),
+                        text: "Terminar compra"
+                    }
+                ]}
+            />
+
 
         </div>)
 };
