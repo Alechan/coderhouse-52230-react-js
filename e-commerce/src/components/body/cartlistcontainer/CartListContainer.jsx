@@ -7,7 +7,7 @@ import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
 
 const CartListContainer = () => {
-    const {cart, addItemToCart, removeItemFromCart, getTotalPrice} = useContext(CartContext);
+    const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart} = useContext(CartContext);
     const [itemTryingToReduceToZero, setItemTryingToReduceToZero] = useState(null);
 
     const handleIncreaseQuantity = (item, prevQuantity) => {
@@ -28,6 +28,10 @@ const CartListContainer = () => {
         removeItemFromCart(itemId);
     };
 
+    const handleClearCart = () => {
+        clearCart();
+    }
+
     const modalHandleRemoveItem = () => {
         handleRemoveItem(itemTryingToReduceToZero.id)
         setItemTryingToReduceToZero(null);
@@ -37,7 +41,7 @@ const CartListContainer = () => {
     const modalHandleKeepItem = () => setItemTryingToReduceToZero(null)
 
     return (
-        <div >
+        <div>
             {
                 cart.length === 0 ?
                     <div>
@@ -46,12 +50,23 @@ const CartListContainer = () => {
                             <Button>Ir a llenar al carrito</Button>
                         </LinkContainer>
                     </div>
-                    : <CartList cart={cart}
-                                totalPrice={getTotalPrice()}
-                                onDecrease={handleReduceQuantity}
-                                onIncrease={handleIncreaseQuantity}
-                                onRemove={setItemTryingToReduceToZero}
-                    />
+                    : <>
+                        <CartList cart={cart}
+                                  totalPrice={getTotalPrice()}
+                                  onDecrease={handleReduceQuantity}
+                                  onIncrease={handleIncreaseQuantity}
+                                  onRemove={setItemTryingToReduceToZero}
+                        />
+                        <div className="d-flex justify-content-center">
+                            <LinkContainer to={ROUTES.HOME} className="modal-home-button">
+                                <Button>Seguir comprando</Button>
+                            </LinkContainer>
+                            <Button variant="danger" className="cart-modal-remove-item"
+                                    onClick={() => handleClearCart()}>
+                                Vaciar carrito
+                            </Button>
+                        </div>
+                    </>
             }
             <Modal className="justify-content-center align-items-center" centered show={itemTryingToReduceToZero}>
                 <Modal.Body>
@@ -60,9 +75,11 @@ const CartListContainer = () => {
                             <p>¿Estás segure de borrar el ítem del carrito?</p>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <Button variant="danger" className="cart-modal-remove-item" onClick={() => modalHandleRemoveItem()}>Borrar
+                            <Button variant="danger" className="cart-modal-remove-item"
+                                    onClick={() => modalHandleRemoveItem()}>Borrar
                                 del carrito</Button>
-                            <Button className="cart-modal-remove-item" onClick={() => modalHandleKeepItem()}>Dejarlo en el
+                            <Button className="cart-modal-remove-item" onClick={() => modalHandleKeepItem()}>Dejarlo en
+                                el
                                 carrito</Button>
                         </div>
                     </Modal.Body>
