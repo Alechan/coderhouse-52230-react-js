@@ -7,7 +7,7 @@ import CartList from "../cartlist/CartList";
 import CartListModal from "../cartlistmodal/CartListModal";
 
 const CartListContainer = () => {
-    const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart} = useContext(CartContext);
+    const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart, getTotalItems} = useContext(CartContext);
     const [itemTryingToReduceToZero, setItemTryingToReduceToZero] = useState(null);
     const [showClearCartModal, setShowClearCartModal] = useState(false);
 
@@ -59,6 +59,7 @@ const CartListContainer = () => {
                     : <>
                         <CartList cart={cart}
                                   totalPrice={getTotalPrice()}
+                                  totalItems={getTotalItems()}
                                   onDecrease={handleReduceQuantity}
                                   onIncrease={handleIncreaseQuantity}
                                   onRemove={setItemTryingToReduceToZero}
@@ -104,7 +105,7 @@ const CartListContainer = () => {
                     {
                         variant: "success",
                         onClick: () => setShowClearCartModal(false),
-                        text: "Terminar compra"
+                        text: "Volver al carrito"
                     }
                 ]}
             />

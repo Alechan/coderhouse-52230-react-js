@@ -3,7 +3,8 @@ import React from "react";
 
 const CartListModal = ({shouldShowModal, pMsg, buttons}) => {
 
-    return (<Modal className="justify-content-center align-items-center" centered show={shouldShowModal}>
+    return (
+        <Modal className="justify-content-center align-items-center" centered show={shouldShowModal}>
             <Modal.Body>
                 <Modal.Body>
                     <div className="text-center">

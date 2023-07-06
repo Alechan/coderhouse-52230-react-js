@@ -2,7 +2,7 @@ import Table from "react-bootstrap/Table";
 import React from "react";
 import CartListRow from "../cartlistrow/CartListRow";
 
-const CartList = ({cart, totalPrice, onDecrease, onIncrease, onRemove}) => {
+const CartList = ({cart, totalPrice, totalItems, onDecrease, onIncrease, onRemove}) => {
     return (
         <>
             <h1 className="text-center m-3">¡Tenés estos ítems en tu carrito!</h1>
@@ -21,7 +21,7 @@ const CartList = ({cart, totalPrice, onDecrease, onIncrease, onRemove}) => {
                 }
                 <tr>
                     <td colSpan="4" className="align-middle align-items-center justify-content-center text-center">
-                        Total: ${totalPrice}
+                         <span className="span-with-margin">Total: ${totalPrice}</span> <span className="span-with-margin">Items: {totalItems}</span>
                     </td>
                 </tr>
                 </tbody>
