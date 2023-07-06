@@ -51,7 +51,7 @@ function MenuItems() {
             </LinkContainer>
         )
     }
-    const Cuidades = () => {
+    const Ciudades = () => {
         return (
             <NavDropdown title="Ciudades" id="basic-nav-ciudades">
                 {loading ?
@@ -70,7 +70,7 @@ function MenuItems() {
 
     return <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-            <Cuidades/>
+            <Ciudades/>
         </Nav>
     </Navbar.Collapse>;
 }
