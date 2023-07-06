@@ -67,7 +67,7 @@ function ItemDetail({item}) {
                             <LinkContainer to={ROUTES.HOME} className="modal-home-button">
                                 <Button>Seguir comprando</Button>
                             </LinkContainer>
-                            <LinkContainer to="/cart" className="modal-cart-button">
+                            <LinkContainer to={ROUTES.CART} className="modal-cart-button">
                                 <Button>Ir al carrito</Button>
                             </LinkContainer>
                         </div>

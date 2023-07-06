@@ -2,6 +2,7 @@ import {Cart4} from "react-bootstrap-icons";
 import Nav from "react-bootstrap/Nav";
 import {LinkContainer} from "react-router-bootstrap";
 import {useState} from "react";
+import {ROUTES} from "../../constants";
 
 const NavbarCartWidget = ({nItems}) => {
     const [cartColor, setCartColor] = useState("white");
@@ -10,7 +11,7 @@ const NavbarCartWidget = ({nItems}) => {
         <>
             {
                 nItems > 0 ?
-                    <LinkContainer to="/cart">
+                    <LinkContainer to={ROUTES.CART}>
                         <Nav.Link
                             onMouseEnter={() => setCartColor("lightgreen")}
                             onMouseLeave={() => setCartColor("white")}
