@@ -1,10 +1,11 @@
 import {CartContext} from "../../../context/cart";
 import React, {useContext, useState} from "react";
-import {Button, Modal} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import './CartListContainer.scss'
 import {LinkContainer} from "react-router-bootstrap";
 import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
+import CartListModal from "../cartlistmodal/CartListModal";
 
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart} = useContext(CartContext);
@@ -68,23 +69,23 @@ const CartListContainer = () => {
                         </div>
                     </>
             }
-            <Modal className="justify-content-center align-items-center" centered show={itemTryingToReduceToZero}>
-                <Modal.Body>
-                    <Modal.Body>
-                        <div className="text-center">
-                            <p>¿Estás segure de borrar el ítem del carrito?</p>
-                        </div>
-                        <div className="d-flex justify-content-center">
-                            <Button variant="danger" className="cart-modal-remove-item"
-                                    onClick={() => modalHandleRemoveItem()}>Borrar
-                                del carrito</Button>
-                            <Button className="cart-modal-remove-item" onClick={() => modalHandleKeepItem()}>Dejarlo en
-                                el
-                                carrito</Button>
-                        </div>
-                    </Modal.Body>
-                </Modal.Body>
-            </Modal>
+            <CartListModal
+                shouldShowModal={!!itemTryingToReduceToZero}
+                pMsg={"¿Estás segure de borrar el ítem del carrito?"}
+                buttons={[
+                    {
+                        variant: "danger",
+                        onClick: () => modalHandleRemoveItem(),
+                        text: "Borrar del carrito"
+                    },
+                    {
+                         variant: "success",
+                        onClick: () => modalHandleKeepItem(),
+                        text: "Dejarlo en el carrito"
+                    }
+                ]}
+            />
+
         </div>)
 };
 
