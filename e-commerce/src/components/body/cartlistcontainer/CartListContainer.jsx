@@ -6,12 +6,14 @@ import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
 import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
 import ModalWithBuyForm from "../modalwithbuyform/ModalWithBuyForm";
+import OverlaySpinner from "../overlayspinner/OverlaySpinner";
 
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart, getTotalItems} = useContext(CartContext);
     const [itemTryingToReduceToZero, setItemTryingToReduceToZero] = useState(null);
     const [showClearCartModal, setShowClearCartModal] = useState(false);
     const [showBuyFormModal, setShowBuyFormModal] = useState(false);
+    const [showOverlaySpinner, setShowOverlaySpinner] = useState(false);
 
     const handleIncreaseQuantity = (item, prevQuantity) => {
         if (prevQuantity < item.stock) {
@@ -47,6 +49,14 @@ const CartListContainer = () => {
     }
 
     const modalHandleKeepItem = () => setItemTryingToReduceToZero(null)
+
+    const modalHandleBuyFormSubmit = (formData) => {
+        setShowOverlaySpinner(true)
+        // setShowBuyFormModal(false)
+    }
+    const modalHandleBuyFormCancel = () => {
+        setShowBuyFormModal(false)
+    }
 
     return (
         <div>
@@ -92,7 +102,7 @@ const CartListContainer = () => {
                         text: "Borrar del carrito"
                     },
                     {
-                         variant: "success",
+                        variant: "success",
                         onClick: () => modalHandleKeepItem(),
                         text: "Dejarlo en el carrito"
                     }
@@ -118,8 +128,12 @@ const CartListContainer = () => {
             {/*Modal to buy*/}
             <ModalWithBuyForm
                 shouldShowModal={showBuyFormModal}
-                onSubmit={() => setShowBuyFormModal(false)}
+                shouldShowSpinner={showOverlaySpinner}
+                onSubmit={modalHandleBuyFormSubmit}
+                onCancel={modalHandleBuyFormCancel}
             />
+            {/*Overlay spinner*/}
+            { showOverlaySpinner && <OverlaySpinner/> }
 
 
         </div>)
