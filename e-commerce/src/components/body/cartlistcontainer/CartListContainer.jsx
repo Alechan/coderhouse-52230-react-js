@@ -5,11 +5,13 @@ import {LinkContainer} from "react-router-bootstrap";
 import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
 import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
+import ModalWithBuyForm from "../modalwithbuyform/ModalWithBuyForm";
 
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart, getTotalItems} = useContext(CartContext);
     const [itemTryingToReduceToZero, setItemTryingToReduceToZero] = useState(null);
     const [showClearCartModal, setShowClearCartModal] = useState(false);
+    const [showBuyFormModal, setShowBuyFormModal] = useState(false);
 
     const handleIncreaseQuantity = (item, prevQuantity) => {
         if (prevQuantity < item.stock) {
@@ -69,7 +71,7 @@ const CartListContainer = () => {
                                 <Button className="button-with-margin">Seguir comprando</Button>
                             </LinkContainer>
                             <Button variant="success" className="button-with-margin"
-                                    onClick={() => {}}>
+                                    onClick={() => setShowBuyFormModal(true)}>
                                 Finalizar compra
                             </Button>
                             <Button variant="danger" className="button-with-margin"
@@ -112,6 +114,11 @@ const CartListContainer = () => {
                         text: "Volver al carrito"
                     }
                 ]}
+            />
+            {/*Modal to buy*/}
+            <ModalWithBuyForm
+                shouldShowModal={showBuyFormModal}
+                onSubmit={() => setShowBuyFormModal(false)}
             />
 
 
