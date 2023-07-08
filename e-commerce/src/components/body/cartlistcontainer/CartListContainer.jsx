@@ -8,6 +8,7 @@ import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
 import ModalWithBuyForm from "../modalwithbuyform/ModalWithBuyForm";
 import {Timestamp} from "firebase/firestore";
 import saveOrder from "../../../services/firestore/orders";
+import {useNavigate} from "react-router-dom";
 
 
 function newOrder(buyer, cart, total) {
@@ -34,7 +35,7 @@ const CartListContainer = () => {
     const [showClearCartModal, setShowClearCartModal] = useState(false);
     const [showBuyFormModal, setShowBuyFormModal] = useState(false);
     const [showOverlaySpinner, setShowOverlaySpinner] = useState(false);
-    const [orderId, setOrderId] = useState(null);
+    const navigate = useNavigate();
 
     const handleIncreaseQuantity = (item, prevQuantity) => {
         if (prevQuantity < item.stock) {
@@ -71,16 +72,13 @@ const CartListContainer = () => {
 
     const modalHandleKeepItem = () => setItemTryingToReduceToZero(null)
 
-    const modalHandleBuyFormSubmit = (formData) => {
+    const modalHandleBuyFormSubmit = async (formData) => {
         setShowOverlaySpinner(true)
         const order = newOrder(formData, cart, getTotalPrice())
-        const orderId = saveOrder(order)
-        orderId.then((id) => {
-            console.log(id)
-        })
-
-        // setShowBuyFormModal(false)
+        const orderId = await saveOrder(order)
+        navigate(ROUTES.ORDER_DETAIL_DYNAMIC(orderId));
     }
+
     const modalHandleBuyFormCancel = () => {
         setShowBuyFormModal(false)
     }

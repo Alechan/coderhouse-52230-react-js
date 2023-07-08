@@ -4,7 +4,7 @@ import {getItemsByIds, updateItems} from "../items";
 const saveOrder = async (order) => {
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
-    let orderId = "";
+    let orderId;
 
     try {
         const docRef = await addDoc(ordersCollection, order);
