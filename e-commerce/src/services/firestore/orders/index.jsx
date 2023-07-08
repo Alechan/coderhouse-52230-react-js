@@ -1,4 +1,4 @@
-import {addDoc, collection, getFirestore} from 'firebase/firestore';
+import {addDoc, collection, doc, getDoc, getFirestore} from 'firebase/firestore';
 import {getItemsByIds, updateItems} from "../items";
 
 const saveOrder = async (order) => {
@@ -29,4 +29,14 @@ const saveOrder = async (order) => {
     return orderId
 }
 
-export default saveOrder;
+const getOrder = async (id) => {
+    const db = getFirestore();
+    const itemRef = doc(db, 'orders', id);
+    const snapshot = await getDoc(itemRef);
+    if (!snapshot.exists()) {
+        return null
+    }
+    return {id: snapshot.id, ...snapshot.data()}
+}
+
+export {saveOrder, getOrder};

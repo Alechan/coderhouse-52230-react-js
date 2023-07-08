@@ -7,8 +7,8 @@ import CartList from "../cartlist/CartList";
 import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
 import ModalWithBuyForm from "../modalwithbuyform/ModalWithBuyForm";
 import {Timestamp} from "firebase/firestore";
-import saveOrder from "../../../services/firestore/orders";
 import {useNavigate} from "react-router-dom";
+import {saveOrder} from "../../../services/firestore/orders";
 
 
 function newOrder(buyer, cart, total) {

@@ -11,6 +11,7 @@ import CartListContainer from "./components/body/cartlistcontainer/CartListConta
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import OrderDetailContainer from "./components/body/orderdetailcontainer/OrderDetailContainer";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -39,6 +40,7 @@ function App() {
                           <Route path={ROUTES.CITY_ITEMS_TEMPLATE} element={<ItemListContainer />} />
                           <Route path={ROUTES.ITEM_DETAIL_TEMPLATE} element={<ItemDetailContainer />} />
                           <Route path={ROUTES.CART} element={<CartListContainer />} />
+                          <Route path={ROUTES.ORDER_DETAIL_TEMPLATE} element={<OrderDetailContainer />} />
                           <Route path="*" element={<ItemListContainer greeting="¡Bienvenides a la tienda!"/>} />
                       </Routes>
                   </Container>
