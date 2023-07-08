@@ -6,6 +6,27 @@ import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
 import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
 import ModalWithBuyForm from "../modalwithbuyform/ModalWithBuyForm";
+import {Timestamp} from "firebase/firestore";
+import saveOrder from "../../../services/firestore/orders";
+
+
+function newOrder(buyer, cart, total) {
+    return {
+        date: Timestamp.fromDate(new Date()),
+        buyer: buyer,
+        total: total,
+        state: "Iniciada",
+        items: cart.map((itemAndQuantity) => {
+            const item = itemAndQuantity.item
+            const quantity = itemAndQuantity.quantity
+
+            const id = item.id
+            const title = item.title
+            const price = item.price
+            return {id, title, quantity, price}
+        }),
+    };
+}
 
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart, getTotalItems} = useContext(CartContext);
@@ -13,6 +34,7 @@ const CartListContainer = () => {
     const [showClearCartModal, setShowClearCartModal] = useState(false);
     const [showBuyFormModal, setShowBuyFormModal] = useState(false);
     const [showOverlaySpinner, setShowOverlaySpinner] = useState(false);
+    const [orderId, setOrderId] = useState(null);
 
     const handleIncreaseQuantity = (item, prevQuantity) => {
         if (prevQuantity < item.stock) {
@@ -51,6 +73,12 @@ const CartListContainer = () => {
 
     const modalHandleBuyFormSubmit = (formData) => {
         setShowOverlaySpinner(true)
+        const order = newOrder(formData, cart, getTotalPrice())
+        const orderId = saveOrder(order)
+        orderId.then((id) => {
+            console.log(id)
+        })
+
         // setShowBuyFormModal(false)
     }
     const modalHandleBuyFormCancel = () => {
