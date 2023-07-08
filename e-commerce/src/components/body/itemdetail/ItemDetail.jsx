@@ -50,6 +50,9 @@ function ItemDetail({item}) {
                     <Card.Text>
                         {item.cityName}
                     </Card.Text>
+                    <Card.Text>
+                        {item.desc}
+                    </Card.Text>
                 </Card.Body>
                 <Card.Footer className="d-flex justify-content-between align-items-center">
                     <span className="align-middle m-1">${item.price}</span>
