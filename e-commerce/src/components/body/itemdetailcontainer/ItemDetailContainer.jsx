@@ -18,12 +18,16 @@ const ItemDetailContainer = () => {
     useEffect(() => {
             getItem(id)
                 .then(item => {
+                    if (!item) {
+                        setLoading(false)
+                        setItem(null)
+                        return
+                    }
                     // Update in realtime the stock of the item to prevent going below 0
                     item.stock = item.stock - quantityInCart;
                     setItem(item)
                     setLoading(false)
                 })
-                // Ignore errors
                 .catch(() => {
                 });
         },
