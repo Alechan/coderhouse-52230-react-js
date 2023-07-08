@@ -16,7 +16,7 @@ function newOrder(buyer, cart, total) {
         date: Timestamp.fromDate(new Date()),
         buyer: buyer,
         total: total,
-        state: "Iniciada",
+        state: "Generada",
         items: cart.map((itemAndQuantity) => {
             const item = itemAndQuantity.item
             const quantity = itemAndQuantity.quantity
