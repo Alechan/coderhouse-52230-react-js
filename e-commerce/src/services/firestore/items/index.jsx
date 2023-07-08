@@ -1,4 +1,4 @@
-import {where, query, doc, collection, getDoc, getDocs, getFirestore} from 'firebase/firestore';
+import {writeBatch, where, query, doc, collection, getDoc, getDocs, getFirestore} from 'firebase/firestore';
 
 
 const getAllItems = async () => {
@@ -23,7 +23,7 @@ const getItem = async (id) => {
 
 const updateItems = async (items) => {
     const db = getFirestore();
-    const batch = db.batch();
+    const batch = writeBatch(db);
     items.forEach((item) => {
         const itemRef = doc(db, "items", item.id);
         batch.update(itemRef, item);
