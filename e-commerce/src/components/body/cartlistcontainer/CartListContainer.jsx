@@ -6,7 +6,6 @@ import {ROUTES} from "../../../constants";
 import CartList from "../cartlist/CartList";
 import ModalWithPAndButtons from "../modalwithpandbuttons/ModalWithPAndButtons";
 import ModalWithBuyForm from "../modalwithbuyform/ModalWithBuyForm";
-import OverlaySpinner from "../overlayspinner/OverlaySpinner";
 
 const CartListContainer = () => {
     const {cart, addItemToCart, removeItemFromCart, getTotalPrice, clearCart, getTotalItems} = useContext(CartContext);
@@ -132,10 +131,6 @@ const CartListContainer = () => {
                 onSubmit={modalHandleBuyFormSubmit}
                 onCancel={modalHandleBuyFormCancel}
             />
-            {/*Overlay spinner*/}
-            { showOverlaySpinner && <OverlaySpinner/> }
-
-
         </div>)
 };
 
