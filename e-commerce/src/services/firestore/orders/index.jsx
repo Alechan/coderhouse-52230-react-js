@@ -14,18 +14,18 @@ const saveOrder = async (order) => {
     }
 
 
-    // // Get items ids to update stock
-    // const itemsIds = order.items.map((item) => item.id);
-    // const itemsToUpdate = getItemsByIds(itemsIds)
-    //
-    // // Updated items
-    // const updatedItems = itemsToUpdate.docs.map((item) => {
-    //     const itemCartQuantity = order.items.find((i) => i.id === item.id).quantity;
-    //     return {...item, stock: item.stock - itemCartQuantity}
-    // })
-    //
-    // // Update items stock in batch
-    // await updateItems(updatedItems)
+    // Get items ids to update stock
+    const itemsIds = order.items.map((item) => item.id);
+    const itemsToUpdate = await getItemsByIds(itemsIds)
+
+    // Updated items
+    const updatedItems = itemsToUpdate.map((item) => {
+        const itemCartQuantity = order.items.find((i) => i.id === item.id).quantity;
+        return {...item, stock: item.stock - itemCartQuantity}
+    })
+
+    // Update items stock in batch
+    await updateItems(updatedItems)
     return orderId
 }
 
