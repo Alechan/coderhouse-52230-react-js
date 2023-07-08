@@ -46,10 +46,10 @@ const ModalWithBuyForm = ({shouldShowModal, shouldShowSpinner, onSubmit, onCance
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="name">
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label>Nombre y apellido</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter your name"
+                            placeholder="Nombre y apellido para la factura"
                             onChange={(e) =>
                                 setFormData(prevState => ({...prevState, name: e.target.value}))
                             }
@@ -58,10 +58,10 @@ const ModalWithBuyForm = ({shouldShowModal, shouldShowSpinner, onSubmit, onCance
                     </Form.Group>
 
                     <Form.Group controlId="phone">
-                        <Form.Label>Phone</Form.Label>
+                        <Form.Label>Teléfono</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter your phone number"
+                            placeholder="Teléfono"
                             onChange={(e) =>
                                 setFormData(prevState => ({...prevState, phone: e.target.value}))
                             }
@@ -73,7 +73,7 @@ const ModalWithBuyForm = ({shouldShowModal, shouldShowSpinner, onSubmit, onCance
                         <Form.Label>Email</Form.Label>
                         <Form.Control
                             type="email"
-                            placeholder="Enter your email"
+                            placeholder="Email"
                             onChange={(e) =>
                                 setFormData(prevState => ({...prevState, email: e.target.value}))
                             }

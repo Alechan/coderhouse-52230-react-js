@@ -34,7 +34,7 @@ const OrderDetailContainer = () => {
                             <Spinner animation="border" role="status" className="ml-2"/>
                         </Container>
                         : !!order ?
-                            <OrderDetail order={order}/>
+                            <OrderDetail order={{...order, id: id}}/>
                             :
                             <div>
                                 <h1>No encontramos esa orden. ¿La copiaste bien? </h1>

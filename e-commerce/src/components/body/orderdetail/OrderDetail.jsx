@@ -1,42 +1,44 @@
 import React from 'react';
-import { Container, Table } from 'react-bootstrap';
+import {Card, ListGroup} from 'react-bootstrap';
+import './OrderDetail.scss';
 
-const OrderComponent = ({ order }) => {
-    const { date, buyer, total, state, items } = order;
+const OrderDetail = ({order}) => {
+    const {id, date, buyer, total, state, items} = order;
 
     return (
-        <Container>
-            <h1>Order Details</h1>
-            <p>Date: {new Date(date.seconds * 1000).toLocaleString()}</p>
-            <p>Buyer Name: {buyer.name}</p>
-            <p>Buyer Phone: {buyer.phone}</p>
-            <p>Buyer Email: {buyer.email}</p>
-            <p>Total: {total}</p>
-            <p>State: {state}</p>
+        <>
+            <h2 className="d-inline"> Orden de compra en Pororó shop </h2>
+            <h3 className="d-inline"> ¡No pierdas el ID de compra! </h3>
+            <Card>
+                <Card.Header className="text-center order-card-header">Orden de compra</Card.Header>
+                <Card.Body>
+                    <p>ID: {id}</p>
+                    <p>Fecha: {new Date(date.seconds * 1000).toLocaleString()}</p>
+                    <p>Total: ${total}</p>
+                    <p>Estado actual: {state}</p>
+                </Card.Body>
 
-            <h2>Items:</h2>
-            <Table striped bordered>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                {items.map((item) => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.title}</td>
-                        <td>{item.quantity}</td>
-                        <td>{item.price}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </Table>
-        </Container>
+                <Card.Header className="text-center order-card-header">Compradore</Card.Header>
+                <Card.Body>
+                    <p>Nombre y Apellido: {buyer.name}</p>
+                    <p>Phone: {buyer.phone}</p>
+                    <p>Email: {buyer.email}</p>
+                </Card.Body>
+
+                <Card.Header className="text-center order-card-header">Items</Card.Header>
+                <ListGroup variant="flush">
+                    {items.map(item => (
+                        <ListGroup.Item key={item.id}>
+                            <p>Nombre: {item.title}</p>
+                            <p>Cantidad: {item.quantity}</p>
+                            <p>Precio por unidad: ${item.price}</p>
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+            </Card>
+        </>
     );
 };
 
-export default OrderComponent;
+export default OrderDetail;
+
