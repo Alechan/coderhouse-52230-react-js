@@ -76,6 +76,7 @@ const CartListContainer = () => {
         setShowOverlaySpinner(true)
         const order = newOrder(formData, cart, getTotalPrice())
         const orderId = await saveOrder(order)
+        clearCart()
         navigate(ROUTES.ORDER_DETAIL_DYNAMIC(orderId));
     }
 
