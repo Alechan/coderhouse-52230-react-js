@@ -1,4 +1,4 @@
-import {where, query, doc, collection, getDoc, getDocs, getFirestore} from 'firebase/firestore';
+import {where, query, doc, collection, getDoc, getDocs, getFirestore, FieldPath} from 'firebase/firestore';
 
 
 const getAllItems = async () => {
@@ -20,6 +20,30 @@ const getItem = async (id) => {
     return {id: snapshot.id, ...snapshot.data()}
 }
 
+const getItemsByIds = async (ids) => {
+    const db = getFirestore();
+    const q = query(
+        collection(db, "items"),
+        where(FieldPath.documentId(), "in", ids)
+    );
+
+    const snapshot = await getDocs(q);
+    return snapshot
+        .docs
+        .map((doc) => ({id: doc.id, ...doc.data()}));
+};
+
+const updateItems = async (items) => {
+    const db = getFirestore();
+    const batch = db.batch();
+    items.forEach((item) => {
+        const itemRef = doc(db, "items", item.id);
+        batch.update(itemRef, item);
+    });
+    await batch.commit();
+}
+
+
 const getItemsInCity = async (cityId) => {
     const db = getFirestore();
     const q = query(
@@ -33,4 +57,4 @@ const getItemsInCity = async (cityId) => {
         .map((doc) => ({id: doc.id, ...doc.data()}));
 }
 
-export {getAllItems, getItem, getItemsInCity};
+export {getAllItems, getItem, getItemsInCity, getItemsByIds, updateItems};
