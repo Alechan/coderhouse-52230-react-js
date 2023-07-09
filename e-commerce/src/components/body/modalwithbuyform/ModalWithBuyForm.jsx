@@ -4,9 +4,9 @@ import React, {useState} from "react";
 import OverlaySpinner from "../overlayspinner/OverlaySpinner";
 
 const ModalWithBuyForm = ({shouldShowModal, shouldShowSpinner, onSubmit, onCancel}) => {
-    const [formData, setFormData] = useState({name: '', phone: '', email: ''});
+    const [formData, setFormData] = useState({name: '', phone: '', email: '', emailConfirmation: ''});
     const [errors, setErrors] = useState({});
-    const {name, phone, email} = formData;
+    const {name, phone, email, emailConfirmation} = formData;
 
 
     const handleSubmit = (e) => {
@@ -15,13 +15,17 @@ const ModalWithBuyForm = ({shouldShowModal, shouldShowSpinner, onSubmit, onCance
         // TODO: sólo valido que no sean vacíos. La validación del email viene gratis pero del teléfono no
         const validationErrors = {};
         if (name.trim() === '') {
-            validationErrors.name = 'Name is required';
+            validationErrors.name = 'El nombre es requerido';
         }
         if (phone.trim() === '') {
-            validationErrors.phone = 'Phone is required';
+            validationErrors.phone = 'El teléfono es requerido';
         }
         if (email.trim() === '') {
-            validationErrors.email = 'Email is required';
+            validationErrors.email = 'El email es requerido';
+        }
+
+        if (email !== emailConfirmation) {
+            validationErrors.email = 'Los emails no coinciden';
         }
 
         // If there are validation errors, set them and stop form submission
@@ -78,6 +82,18 @@ const ModalWithBuyForm = ({shouldShowModal, shouldShowSpinner, onSubmit, onCance
                                 setFormData(prevState => ({...prevState, email: e.target.value}))
                             }
                             isInvalid={errors.email}
+                        />
+                    </Form.Group>
+
+                    <Form.Group controlId="emailConfirmation">
+                        <Form.Label>Confirmar email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Email"
+                            isInvalid={errors.email}
+                            onChange={(e) =>
+                                setFormData(prevState => ({...prevState, emailConfirmation: e.target.value}))
+                            }
                         />
                     </Form.Group>
 
