@@ -7,7 +7,7 @@ const OrderDetail = ({order}) => {
 
     return (
         <>
-            <h2 className="d-inline"> Orden de compra en Pororó shop </h2>
+            <h2 className="d-inline"> Orden de compra en PororóShop </h2>
             <h3 className="d-inline"> ¡No pierdas el ID de compra! </h3>
             <Card>
                 <Card.Header className="text-center order-card-header">Orden de compra</Card.Header>
