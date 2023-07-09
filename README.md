@@ -28,4 +28,6 @@ Además, en etapas anteriores del desarrollo se utilizaron las siguientes biblio
 - concurrently: utilizada para poder correr concurrentemente el mockserver al mismo tiempo que la app de react
 - json-server: utilizada para levantar un servidor con las rutas precargadas de /items y /cities
 
-Ambas no son más utilizadas pero pueden servir si en algún momento se separa el ambiente de producción (que accede al Firestore real) del ambiente de desarrollo (que utilizaría de vuelta el mockserver como en la etapa anterior del desarrollo.)
+Ninguna de las dos está siendo utilizada en la útima versión, pero pueden servir si en algún momento se separa el ambiente
+de producción (que accede al Firestore real) del ambiente de desarrollo (que utilizaría de vuelta el mockserver como en la
+etapa anterior del desarrollo.)
